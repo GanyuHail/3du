@@ -32,10 +32,11 @@ function App() {
     spotLight.position.set(0, 64, 32);
     scene.add(spotLight);
 
-    const boxGeometry = new THREE.BoxGeometry(30, 15, 10);
-    const boxMaterial = new THREE.MeshNormalMaterial();
-    const boxMesh = new THREE.Mesh(boxGeometry, boxMaterial);
-    scene.add(boxMesh);
+    const sphereGeometry = new THREE.SphereGeometry(12, 64, 32);
+    const sphereTexture = new THREE.TextureLoader().load( 'https://raw.githubusercontent.com/GanyuHail/3dUni/af0410ab94f43f47c605838cd9db4d380639afb7/src/assets/uni.jpg' );
+    const sphereMaterial = new THREE.MeshBasicMaterial( { map: sphereTexture } );
+    const sphereMesh = new THREE.Mesh(sphereGeometry, sphereMaterial);
+    scene.add(sphereMesh);
 
     const controls = new OrbitControls(camera, renderer.domElement);
 
